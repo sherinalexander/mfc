@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="index.css">
+</head>
+<body><center>
+    <h2 class="account"class="select"> Create Account</h2>
+    <div class="image">
+    <img src="/Images/mail.png">
+</div>
+    <p class="mno"class="select">Enter your mobile number to create account</p>
+    <p class="otp"class="select">We will send you one time password(OTP)</p>
+    
+    
+    
+    
+    <input type="text" class="line-input" id="numberInput" placeholder="Enter  mobile Number" oninput="checkInput()" pattern="[0-9]{10}" required>
+
+
+    <br><br><br><br>
+    <div class="error-message"></div>
+     <script> 
+    const inputElement = document.querySelector('.line-input');
+    const errorMessage = document.querySelector('.error-message');
+
+    inputElement.addEventListener('input', function() {
+        if (inputElement.validity.valid) {
+            errorMessage.textContent = '';
+        } else {
+            showError();
+        }
+    });
+
+    function showError() {
+        if (inputElement.validity.valueMissing) {
+            errorMessage.textContent = 'Please enter a mobile number.';
+        } else if (inputElement.validity.patternMismatch) {
+            errorMessage.textContent = 'Please enter a valid 10-digit mobile number.';
+        }
+    }
+</script> 
+    <center> 
+        <button type="submit"class="button">Send</button></center>
+</center>
+
+</body>
+</html>
